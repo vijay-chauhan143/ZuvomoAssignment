@@ -1,90 +1,94 @@
-# Welcome to your Expo app 👋
+# React Native Product Explorer
 
-## Assignment Starter
+## Features
 
-A minimal Expo and React Native starter with TypeScript, Home and Settings tabs, a Redux-managed light/dark theme, and a reusable Axios client.
+- **Product Listing:** Fetches and displays products from the DummyJSON API.
+- **Product Details:** Tap a product to view its detailed information, including images, description, price, rating, and category.
+- **Skeleton Loading:** Displays skeleton placeholders while product data is loading.
+- **Error Handling:** Provides an error state and retry option when API requests fail, if implemented.
+- **Pull to Refresh:** Refreshes the product list using the pull-to-refresh gesture, if implemented.
+- **Navigation:** Uses stack navigation for product details and bottom-tab navigation for the main screens.
+- **Light and Dark Themes:** Allows users to switch between light and dark themes, if implemented.
 
-### Technology Stack
+## Tech Stack
 
-- Expo SDK 57, React Native, and TypeScript
-- React Navigation bottom tabs
-- Redux Toolkit and React Redux
-- AsyncStorage for theme persistence
-- Axios for the API client
+- React Native
+- Expo
+- TypeScript
+- React Navigation
+- Redux Toolkit
+- Axios
+- DummyJSON Products API
 
-### Folder Structure
+## API Endpoints
 
-```text
-src/
-   navigation/       App and bottom-tab navigators
-   screens/          Home and Settings screens with separate styles
-   components/       Reusable ThemeToggle component and styles
-   store/            Redux store and theme slice
-   services/         Axios API client
-   theme/            Shared colors and theme configuration
-   types/            Navigation types
+The application uses the public DummyJSON API. No API key is required.
+
+**Base URL**
+
+`https://dummyjson.com`
+
+**Fetch all products**
+
+`GET https://dummyjson.com/products`
+
+**Fetch a product by ID**
+
+`GET https://dummyjson.com/products/{id}`
+
+Example: `GET https://dummyjson.com/products/1`
+
+## Prerequisites
+
+Before running the application, make sure you have installed:
+
+- Node.js and npm
+- Expo-compatible development environment
+- Expo Go, Android Studio, or an iOS simulator, depending on your target platform
+
+## Getting Started
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/vijay-chauhan143/ZuvomoAssignment.git
 ```
 
-### Install and Run
+### 2. Install dependencies
 
 ```bash
 npm install
+```
+
+### 3. Configure the API URL
+
+If the project uses the `EXPO_PUBLIC_API_URL` environment variable, create a `.env` file in the project root with the following content:
+
+```env
+EXPO_PUBLIC_API_URL=https://dummyjson.com
+```
+
+### 4. Start the application
+
+```bash
 npx expo start
 ```
 
-Open the Settings tab and use the Dark Mode switch to change themes. The selection is saved across app restarts; until a selection is made, the app follows the device color scheme.
+Follow the instructions displayed in the terminal to open the app using Expo Go or a supported simulator/emulator.&#x20;
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+## Application Behaviour
 
-## Get started
+- The product list is retrieved from the API and displayed in a scrollable list.
+- Selecting a product opens its details screen.
+- Skeleton placeholders are displayed while data is being fetched.
+- API failures should display an appropriate error message and retry option.
+- Pull-to-refresh should request the latest product list without unnecessarily replacing existing items with skeleton placeholders.
 
-1. Install dependencies
+The error handling and refresh behaviours described above should be retained in this section only if they are implemented in the submitted version.
 
-   ```bash
-   npm install
-   ```
+## Assignment Scope
 
-2. Start the app
+This project demonstrates API integration, navigation between list and detail screens, loading and error-state handling, pull-to-refresh, and reusable UI components in React Native.
 
-   ```bash
-   npx expo start
-   ```
+##
 
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
-```
-
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-### Other setup steps
-
-- To set up ESLint for linting, run `npx expo lint`, or follow our guide on ["Using ESLint and Prettier"](https://docs.expo.dev/guides/using-eslint/)
-- If you'd like to set up unit testing, follow our guide on ["Unit Testing with Jest"](https://docs.expo.dev/develop/unit-testing/)
-- Learn more about the TypeScript setup in this template in our guide on ["Using TypeScript"](https://docs.expo.dev/guides/typescript/)
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
